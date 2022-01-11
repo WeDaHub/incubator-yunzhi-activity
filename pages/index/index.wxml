@@ -1,0 +1,11 @@
+<view class="container">
+  <button bindtap="goComponent" data-url='/pages/share/share' style="position: relative; left: 0rpx; top: 2rpx">
+    分享组件
+  </button>
+  <button bindtap="getUserProfile">获取头像昵称</button>
+  <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">绑定手机号</button> -->
+  <button bindtap="goComponent" data-url='/pages/activity/create/index'>创建活动</button>
+  <button bindtap="goComponent" data-url='/pages/list/list'>活动列表</button>
+  <button bindtap="openActivity">活动详情</button>
+  <button bindtap="goMessage">订阅消息（活动报名成功）</button>
+</view>

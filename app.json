@@ -1,0 +1,54 @@
+{
+  "entryPagePath": "pages/list/list",
+  "pages": [
+    "pages/list/list",
+    "pages/index/index",
+    "pages/share/share",
+    "pages/activity/detail/index",
+    "pages/activity/create/index",
+    "pages/personal/index/index",
+    "pages/personal/myCreateActive/index",
+    "pages/personal/myActive/index",
+    "pages/score/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f6f6f6"
+  },
+  "style": "v2",
+  "useExtendedLib": {
+    "weui": true
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "custom": false,
+    "color": "#7A7E83",
+    "selectedColor": "#111",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/list/list",
+        "iconPath": "assets/images/tar/tar-home.png",
+        "selectedIconPath": "assets/images/tar/tar-home-selected.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/score/index",
+        "iconPath": "assets/images/tar/tar-score.png",
+        "selectedIconPath": "assets/images/tar/tar-score-selected.png",
+        "text": "积分"
+      },
+      {
+        "pagePath": "pages/personal/index/index",
+        "iconPath": "assets/images/tar/tar-personal.png",
+        "selectedIconPath": "assets/images/tar/tar-personal-selected.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

@@ -1,0 +1,75 @@
+<!-- pages/activity/create/index.wxml -->
+<!-- <mp-navigation-bar loading="{{false}}" show="{{true}}" animated="{{false}}" color="#000" background="#fff" title="创建活动" back="{{true}}"></mp-navigation-bar> -->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<view class="activity-create" xmlns:wx="http://www.w3.org/1999/xhtml">
+    <view class="activity-create__bd">
+        <mp-form id="form" rules="{{rules}}" models="{{formData}}">
+            <mp-cells title="活动名称" ext-class="activity-create__bd-cells">
+                <mp-cell prop="name" title="" ext-class="">
+                    <textarea value="{{name}}" bindinput="handleInputName" class="weui-textarea" placeholder="请输入名字（20字以内）" style="height: 3.3em; font-size: 32rpx; line-height: 40rpx;" placeholder-style="font-weight: normal; font-size: 32rpx; color: #CCCCCC;" />
+                </mp-cell>
+                <mp-cell prop="introImgUrl">
+                    <mp-uploader bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}" upload="{{uploadFile}}" files="{{files}}" title="" tips=""></mp-uploader>
+                </mp-cell>
+            </mp-cells>
+            <mp-cells title="活动类型" ext-class="activity-create__bd-cells activity-create__bd-type-id">
+                <mp-cell prop="typeId" ext-class="type-id__buttons">
+                    <text bindtap="handleTypeTap" data-item="{{item}}" wx:for="{{activityTypes}}" class="{{item.id === typeId ? 'active' : ''}}" wx:key="name">{{item.name}}</text>
+                </mp-cell>
+            </mp-cells>
+            <mp-cells title="">
+                <mp-cell prop="presenter" title="主持人" ext-class="activity-create__bd-presenter">
+                    <input bindinput="formInputChange" value="{{presenter}}" data-field="presenter" class="weui-input" placeholder="请输入主持人名称(20字以内)" maxlength="20" />
+                </mp-cell>
+            </mp-cells>
+            <mp-cells title="">
+                <mp-cell prop="startTime" title="开始时间" ext-class="activity-create__bd-presenter">
+                    <picker disabled="{{isEdit && isStage > 1}}" mode="multiSelector" value="{{startTime}}" bindchange="changeStartTime" range="{{startTimeArray}}">
+                        <view style="text-align: right;">
+                            {{startTimeArray[0][startTime[0]]}}-{{startTimeArray[1][startTime[1]]}}-{{startTimeArray[2][startTime[2]]}} {{startTimeArray[3][startTime[3]]}}:{{startTimeArray[4][startTime[4]]}}:{{startTimeArray[5][startTime[5]]}}
+                        </view>
+                    </picker>
+                </mp-cell>
+            </mp-cells>
+            <mp-cells title="">
+                <mp-cell prop="endTime" title="结束时间" ext-class="activity-create__bd-presenter">
+                    <picker mode="multiSelector" disabled="{{isEdit && isStage > 1}}" value="{{endTime}}" bindchange="changeEndTime" range="{{endTimeArray}}">
+                        <view style="text-align: right;">
+                            {{endTimeArray[0][endTime[0]]}}-{{endTimeArray[1][endTime[1]]}}-{{endTimeArray[2][endTime[2]]}} {{endTimeArray[3][endTime[3]]}}:{{endTimeArray[4][endTime[4]]}}:{{endTimeArray[5][endTime[5]]}}
+                        </view>
+                    </picker>
+                </mp-cell>
+            </mp-cells>
+            <mp-cells title="">
+                <mp-cell prop="address" title="地点" ext-class="activity-create__bd-presenter">
+                    <input bindinput="formInputChange" value="{{address}}" data-field="address" class="weui-input" placeholder="请输入地点" maxlength="100" />
+                </mp-cell>
+            </mp-cells>
+            <mp-cells title="">
+                <!-- <mp-cell prop="useSignUp" title="是否开放报名" ext-class="activity-create__bd-presenter">
+                    <view style="text-align: right;">
+                        <switch bindchange="handleSwitchChange" data-field="useSignUp" checked="{{useSignUp}}" color="#277AFF" />
+                    </view>
+                </mp-cell> -->
+                <mp-cell prop="useClock" title="是否开放签到" ext-class="activity-create__bd-presenter">
+                    <view style="text-align: right;">
+                        <switch disabled="{{isEdit && isStage > 1}}" bindchange="handleSwitchChange" data-field="useClock" checked="{{useClock}}" color="#277AFF" />
+                    </view>
+                </mp-cell>
+            </mp-cells>
+            <mp-cells title="">
+                <mp-cell prop="address" title="签到口令" ext-class="activity-create__bd-presenter">
+                    <input bindinput="formInputChange" value="{{command}}" data-field="command" class="weui-input" placeholder="请输入口令" maxlength="100" />
+                </mp-cell>
+            </mp-cells>
+            <mp-cells title="活动详情介绍" ext-class="activity-create__bd-cells activity-create__bd-content">
+                <mp-cell prop="content" title="" ext-class="">
+                    <textarea value="{{content}}" bindinput="handleInputContent" class="weui-textarea" placeholder="请输入活动详情（500字以内）" auto-height style="height: 5em; font-size: 32rpx; line-height: 40rpx;" placeholder-style="font-weight: normal; font-size: 32rpx; color: #CCCCCC;" />
+                </mp-cell>
+            </mp-cells>
+        </mp-form>
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="primary" bindtap="submitForm" maxlength="500">完成</button>
+        </view>
+    </view>
+</view>

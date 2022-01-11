@@ -1,0 +1,68 @@
+/*GLOBAL*/
+page {
+  background: #f6f6f6;
+  font-size: 28rpx;
+  color: #000;
+}
+view {
+  box-sizing: border-box;
+}
+
+/*FLEX*/
+.flex-wrap-r {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.flex-wrap-c {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-justify-start {
+  justify-content: flex-start;
+}
+.flex-justify-center {
+  justify-content: center;
+}
+.flex-justify-end {
+  justify-content: flex-end;
+}
+.flex-justify-between {
+  justify-content: space-between;
+}
+.flex-align-start {
+  align-items: flex-start;
+}
+.flex-align-center {
+  align-items: center;
+}
+.flex-align-end {
+  align-items: flex-end;
+}
+
+.flex-col1 {
+  flex: 1;
+}
+.flex-col2 {
+  flex: 2;
+}
+.flex-col3 {
+  flex: 3;
+}
+
+/*NORMAL*/
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.text-ac {
+  text-align: center;
+}
+.text-ar {
+  text-align: right;
+}

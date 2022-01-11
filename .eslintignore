@@ -1,0 +1,12 @@
+!/*.js
+!/**/.eslintrc.js
+/tests/**/*.js
+/test*.js
+/coverage/
+**/node_modules/**
+/miniprogram_npm
+/typings
+/pages/index
+/app.js
+/utils/util.js
+/components/ec-canvas/*.js

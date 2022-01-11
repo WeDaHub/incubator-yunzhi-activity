@@ -1,0 +1,79 @@
+/* pages/activity/create/index.wxss */
+.activity-create {
+  background-color: #F5F5F5;
+  padding: 24rpx 0;
+}
+.activity-create__bd-cells {
+  padding-top: 32rpx;
+  background-color: #fff;
+}
+.activity-create__bd .weui-cells__title {
+  font-size: 28rpx;
+  margin-top: 0;
+  color: #111111;
+}
+
+.activity-create__bd-type-id {
+  background-color: transparent;
+}
+.activity-create__bd-type-id .weui-cells.weui-cells_after-title {
+  background-color: transparent;
+}
+
+.activity-create__bd-type-id .type-id__buttons {
+  display: flex;
+  padding: 20rpx 32rpx;
+}
+.activity-create__bd-type-id text {
+  height: 64rpx;
+  line-height: 88rpx;
+  font-size: 24rpx;
+  border-radius: 36rpx;
+  background-color: #fff;
+  color: #777777;
+  padding: 20rpx 32rpx;
+  margin-right: 16rpx;
+}
+.activity-create__bd-type-id text.active {
+  background-color: #277AFF;
+  color: #fff;
+}
+
+.activity-create__bd-cells .weui-cells.weui-cells_after-title::after {
+  display: none;
+}
+.activity-create__bd-cells .weui-cells.weui-cells_after-title::before {
+  display: none;
+}
+.activity-create__bd-cells .weui-uploader .weui-uploader__hd {
+  display: none;
+}
+.activity-create__bd-cells .weui-cell.weui-cell-inform.weui-cell_wxss {
+  padding-top: 0;
+}
+.activity-create__bd-cells .weui-cell.weui-cell-inform.weui-cell_wxss::before {
+  display: none;
+}
+
+.activity-create__bd-presenter {
+  font-size: 28rpx;
+  color: #111111;
+}
+
+.activity-create__bd-presenter .weui-input {
+  text-align: right;
+}
+
+.activity-create__bd-content {
+  margin-top: 32rpx;
+}
+
+.weui-btn-area .weui-btn {
+  width: 100%;
+  padding: 24rpx;
+  /* height: 96rpx;
+  line-height: 96rpx; */
+  box-shadow: 0 10rpx 20px 0 rgba(39,122,255,0.35);
+  border-radius: 48px;
+  background-color: #277AFF;
+}

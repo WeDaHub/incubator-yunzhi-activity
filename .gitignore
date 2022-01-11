@@ -1,0 +1,8 @@
+.DS_Store
+.idea
+*.swp
+.DS_Store?
+*/.DS_Store
+.vscode/*
+node_modules/
+miniprogram_npm/

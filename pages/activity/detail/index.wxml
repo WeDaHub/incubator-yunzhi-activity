@@ -1,0 +1,133 @@
+<!-- pages/activity/detail/index.wxml -->
+<mp-navigation-bar loading="{{false}}" show="{{true}}" animated="{{false}}" color="#000" background="#fff" title="活动详情" back="{{false}}">
+  <view slot="left" style="padding: 20rpx 40rpx 20rpx 0rpx" bindtap="handleNavigateBack">
+    <mp-icon icon="back" color="black" size="{{12}}"></mp-icon>
+  </view>
+</mp-navigation-bar>
+<view class="activity-detail">
+  <!-- swiper滚动栏，目前只有一张图片，所以不滚动 -->
+  <view class="activity-detail__imgs">
+    <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgs}}" wx:key="item">
+        <swiper-item>
+          <image src="{{item}}" class="swiper-item" mode="aspectFill" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="swiper-gradient"></view>
+  </view>
+  <!-- 主体内容 -->
+  <view class="activity-detail__body">
+    <view class="activity-detail__name">{{name}}</view>
+    <!-- 主持人 -->
+    <view class="activity-detail__info">
+      <image class="activity-detail__icon" src="../../../assets/images/activity/detail/presenter.png" mode="aspectFit" />
+      <text>{{presenter}}</text>
+    </view>
+    <!-- 时间 -->
+    <view class="activity-detail__info">
+      <image class="activity-detail__icon" src="../../../assets/images/activity/detail/date.png" mode="aspectFit" />
+      <text>{{dateRange}}</text>
+    </view>
+    <!-- 地点 -->
+    <view class="activity-detail__info" style="margin-bottom: 40rpx;">
+      <image class="activity-detail__icon" src="../../../assets/images/activity/detail/pos.png" mode="aspectFit" />
+      <text>{{address}}</text>
+    </view>
+    <!-- tabs栏 -->
+    <view style="position: sticky;">
+      <t-tabs tabs="{{tabs}}" labelProp="name" labelNum="num" bind:select="handleTabSelect" model:active-tab="{{activeTab}}"></t-tabs>
+    </view>
+    <!-- 活动详情 -->
+    <view wx:if="{{curTabName === 'detail'}}" style="padding-bottom: 180rpx" class="activity-detail_content">
+      <text user-select>{{content}}</text>
+    </view>
+    <!-- 评价tab -->
+    <view wx:if="{{curTabName === 'comment'}}" style="padding-bottom: 180rpx" class="activity-detail__comments">
+      <view class="activity-detail__comment-btn" wx:if="{{canRemark}}">
+        <text bindtap="handleInputComment">我要评论</text>
+      </view>
+      <view class="activity-detail__comment" wx:for="{{comments}}" wx:key="id">
+        <view class="activity-detail__comment-info">
+          <view class="activity-detail__comment-info-head">
+            <image src="{{item.headimgurl}}" mode="aspectFit" />
+            <view>
+              <view class="activity-detail__comment-info-name">{{item.name}}</view>
+              <view class="activity-detail__comment-info-date">{{item.date}}</view>
+            </view>
+          </view>
+          <view class="activity-detail__comment-info-stars">
+            <image src="../../../assets/images/activity/detail/star_{{item.star >= 1 ? 'on' : 'off' }}.png" />
+            <image src="../../../assets/images/activity/detail/star_{{item.star >= 2 ? 'on' : 'off' }}.png" />
+            <image src="../../../assets/images/activity/detail/star_{{item.star >= 3 ? 'on' : 'off' }}.png" />
+            <image src="../../../assets/images/activity/detail/star_{{item.star >= 4 ? 'on' : 'off' }}.png" />
+            <image src="../../../assets/images/activity/detail/star_{{item.star >= 5 ? 'on' : 'off' }}.png" />
+          </view>
+        </view>
+        <view class="activity-detail__comment-content">
+          <text>{{item.content}}</text>
+        </view>
+      </view>
+      <view>
+        <mp-loading show="{{userLoading}}" type="circle" class="activity-detail__user-loading"></mp-loading>
+        <view class="list__end-tip" wx:if="{{!userLoading && comments.length > 0}}">到底啦 ~</view>
+        <view class="list__end-tip" style="margin-top: 0" wx:if="{{!userLoading && comments.length === 0}}">
+          <image class="empty-conponent__logo" src="../../../assets/images/empty-bg.png"></image>
+          <view class="empty-conponent__tip">暂无数据 ~</view>
+        </view>
+      </view>
+    </view>
+    <!-- 报名人员、参与人员列表 -->
+    <view wx:if="{{curTabName === 'user'}}" style="padding-bottom: 180rpx; margin-top: 40rpx;">
+      <view wx:for="{{users}}" wx:key="userid" class="activity-detail__user">
+        <image src="{{item.headimgurl}}" mode="aspectFit" />
+        <view>
+          <view class="activity-detail__user-name">{{item.name}}</view>
+          <view class="activity-detail__user-date">{{item.date}}</view>
+        </view>
+      </view>
+      <view>
+        <mp-loading show="{{userLoading}}" type="circle" class="activity-detail__user-loading"></mp-loading>
+        <view class="list__end-tip" wx:if="{{!userLoading && users.length > 0}}">到底啦 ~</view>
+        <view class="list__end-tip" wx:if="{{!userLoading && users.length === 0}}">
+          <image class="empty-conponent__logo" src="../../../assets/images/empty-bg.png"></image>
+          <view class="empty-conponent__tip">暂无数据 ~</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 我要报名、我要打卡、我要分享按钮 -->
+  <view class="activity-detail__opt-cont" wx:if="{{!!btnName}}">
+    <button disabled="{{!btnCanTap}}" open-type="{{btnType === 'share' ? 'share': ''}}" class="weui-btn" type="primary" bindtap="handleTapOptBtn" maxlength="500">
+      {{btnName}}
+    </button>
+  </view>
+  <!-- 打卡弹窗 -->
+  <mp-dialog title="我要打卡" show="{{dialogClockShow}}" bindbuttontap="handleTapDialogClockBtn" buttons="{{buttons}}">
+    <view class="activity-detail__command">
+      <view class="activity-detail__command-name">口令</view>
+      <view>
+        <input bindinput="handleInputCommand" class="weui-input" placeholder="请输入口令" maxlength="20" />
+      </view>
+    </view>
+  </mp-dialog>
+  <!-- 评价弹窗 -->
+  <mp-dialog title="我要评价" show="{{dialogCommentShow}}" bindbuttontap="handleTapDialogCommentBtn" buttons="{{buttons}}">
+    <view class="activity-detail__dialog-comment">
+      <view class="activity-detail__dialog-comment-name">点击评星</view>
+      <view bindtap="handleTapCommentStar" class="activity-detail__dialog-comment-stars">
+        <image data-item="1" src="../../../assets/images/activity/detail/star_{{commentStar >= 1 ? 'on' : 'off' }}.png" />
+        <image data-item="2" src="../../../assets/images/activity/detail/star_{{commentStar >= 2 ? 'on' : 'off' }}.png" />
+        <image data-item="3" src="../../../assets/images/activity/detail/star_{{commentStar >= 3 ? 'on' : 'off' }}.png" />
+        <image data-item="4" src="../../../assets/images/activity/detail/star_{{commentStar >= 4 ? 'on' : 'off' }}.png" />
+        <image data-item="5" src="../../../assets/images/activity/detail/star_{{commentStar >= 5 ? 'on' : 'off' }}.png" />
+      </view>
+    </view>
+    <view class="activity-detail__command">
+      <view class="activity-detail__command-name">评价</view>
+      <view>
+        <textarea bindinput="handleInputCommentContent" class="weui-input" placeholder="请输入评论..." maxlength="20" />
+      </view>
+    </view>
+  </mp-dialog>
+</view>

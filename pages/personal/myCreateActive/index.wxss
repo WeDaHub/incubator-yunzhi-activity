@@ -1,0 +1,71 @@
+.my-create-active__body {
+  padding: 0 24rpx;
+}
+.list__end-tip {
+  font-size: 28rpx;
+  text-align: center;
+  color: #666;
+  margin-top: 20rpx;
+}
+
+.list-card__item {
+  display: flex;
+  margin-top: 24rpx;
+  position: relative;
+}
+
+.list-cart__item-cup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 36rpx;
+  width: 92rpx;
+}
+
+.list-card__item-image image {
+  width: 264rpx;
+  height: 192rpx;
+  margin-right: 24rpx;
+}
+
+.list-card__item-title {
+  width: 416rpx;
+  height: 80rpx;
+  font-size: 28rpx;
+  color: #111;
+  line-height: 40rpx;
+  font-weight: bold;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin: 10rpx 0;
+}
+
+.list-card__item-content {
+  display: flex;
+  padding-top: 10rpx;
+}
+
+.list-card__item-content-item {
+  display: flex;
+  padding: 8rpx 0;
+}
+
+.list-card__item-content-item image {
+  height: 24rpx;
+  width: 24rpx;
+  margin-right: 14rpx;
+}
+
+.list-card__item-content-item text {
+  height: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 20rpx;
+  color: #666666;
+  letter-spacing: 0;
+  line-height: 24rpx;
+}

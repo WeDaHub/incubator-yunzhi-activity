@@ -1,0 +1,3 @@
+<view class="share-box">
+  <t-share></t-share>
+</view>

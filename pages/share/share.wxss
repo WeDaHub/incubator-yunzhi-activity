@@ -1,0 +1,11 @@
+page{
+  box-sizing: border-box;
+  padding: 32rpx;
+  background-color: #f6f6f6;
+}
+.share-box{
+  margin-top: 100rpx;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10rpx;
+}

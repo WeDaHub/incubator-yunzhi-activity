@@ -1,0 +1,42 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "个人中心",
+          "pathName": "pages/personal/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "活动列表",
+          "pathName": "pages/list/list",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "积分中心",
+          "pathName": "pages/score/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/create/index",
+          "pathName": "pages/activity/create/index",
+          "query": "id=yunzhi-1622027356356-7",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

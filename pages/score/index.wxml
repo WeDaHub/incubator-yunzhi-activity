@@ -1,0 +1,17 @@
+<view class="score__top" style="padding-top: {{statusBarHeight}}px;">
+  <image class="score__bg1" src="../../assets/images/score/score-bg-1.png"></image>
+  <image class="score__bg2" src="../../assets/images/score/score-bg-2.png"></image>
+  <view style="height: 40px; line-height: 40px;" class="score__logo">
+    <image src="../../assets/images/list/list-logo.png"></image>
+  </view>
+  <scroll-view scroll-x	enable-flex	class="score__info">
+    <view class="score__info-item" wx:for="{{list}}" wx:key="activityTypeId">
+      <text class="score__info-item-num">{{item.score}}</text>
+      <text class="score__info-item-name">{{item.activityTypeName}}</text>
+    </view>
+  </scroll-view>
+</view>
+<t-page-empty wx:if="{{isLogin}}" type="score" tip="积分商城建设中 ~"></t-page-empty>
+<view wx:else class="score__login">
+  <button type="primary" bindtap="getUserProfile">登 录</button>
+</view>

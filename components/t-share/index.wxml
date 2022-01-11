@@ -1,0 +1,23 @@
+
+<view class="share-box-wrap">
+  <view class="share-box-item">
+    <button class="share-btn" open-type="share" plain hover-class="none">
+      <image src="../../assets/images/share-friends.png" class="share-icon"></image>
+      <text>分享给朋友</text>
+    </button>
+  </view>
+  <view class="share-box-item">
+    <button class="share-btn" bindtap="toMoments"  plain hover-class="none">
+      <image src="../../assets/images/share-moments.png" class="share-icon"></image>
+      <text>分享朋友圈</text>
+    </button>
+  </view>
+</view>
+
+<wxml-to-canvas style="position:absolute;top:0;left:-10000rpx;" height="325" class="widget"></wxml-to-canvas>
+<cover-view wx:if="{{show}}" class="share-image-wrap" bindtap="onClose"></cover-view>
+<cover-view  wx:if="{{show}}" class="share-image">
+  <cover-image src="{{imageSrc}}" class="img-show" style="width: {{width}}px; height: {{height}}px"></cover-image>
+  <cover-view class="info-text">保存图片后，可分享至朋友圈</cover-view>
+  <button class="share-save" bindtap="onSave">保存</button>
+</cover-view>

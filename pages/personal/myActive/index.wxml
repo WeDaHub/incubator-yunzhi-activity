@@ -1,0 +1,8 @@
+<view class="my-active__body">
+  <t-active-list list="{{list}}" bindloginverity="loginVerity"></t-active-list>
+</view>
+<view>
+  <mp-loading show="{{showLoading}}" type="circle"></mp-loading>
+  <view class="list__end-tip" wx:if="{{showEndTip && list.length > 0}}">到底啦 ~ </view>
+  <t-page-empty wx:if="{{showEndTip && list.length === 0}}"></t-page-empty>
+</view>

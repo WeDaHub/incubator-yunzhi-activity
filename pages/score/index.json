@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "t-page-empty": "../../components/t-page-empty/index"
+  },
+  "navigationStyle": "custom"
+}

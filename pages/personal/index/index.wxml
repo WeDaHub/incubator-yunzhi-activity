@@ -1,0 +1,40 @@
+<view class="personal__top" style="padding-top: {{statusBarHeight}}px;">
+  <image class="personal__bg" src="../../../assets/images/personal/personal-logo.png"></image>
+  <view style="height: 40px; line-height: 40px;" class="personal__logo">
+    <image src="../../../assets/images/list/list-logo.png"></image>
+  </view>
+  <view class="personal__info">
+    <image src="{{userInfo.avatarUrl || '../../../assets/images/personal/personal-default-head.png'}}"></image>
+    <view>{{userInfo.userName || '无名'}}</view>
+  </view>
+</view>
+<view wx:if="{{isLogin}}">
+  <view class="personal__create-btn" wx:if="{{isAdmin}}">
+    <navigator url="/pages/activity/create/index">创建活动 > </navigator>
+  </view>
+
+  <view class="personal__tab">
+    <navigator class="personal__tab-item" style="border-bottom: 1px solid #efefef;" url="/pages/personal/myCreateActive/index" wx:if="{{isAdmin}}">
+      <image class="personal__tab-item-img" src="../../../assets/images/personal/person-my-create-icon.png"></image>
+      <text class="personal__tab-item-title">我创建的活动</text>
+      <text class="personal__tab-item-right">></text>
+    </navigator>
+
+    <navigator class="personal__tab-item" url="/pages/personal/myActive/index">
+      <image class="personal__tab-item-img" src="../../../assets/images/personal/personal-active-icon.png"></image>
+      <text class="personal__tab-item-title">已报名的活动</text>
+      <text class="personal__tab-item-right">></text>
+    </navigator>
+  </view>
+
+  <!-- <view class="personal__tab">
+    <navigator class="personal__tab-item">
+      <image class="personal__tab-item-img" src="../../../assets/images/personal/persion-problem-icon.png"></image>
+      <text class="personal__tab-item-title">问题反馈</text>
+      <text class="personal__tab-item-right">></text>
+    </navigator>
+  </view> -->
+</view>
+<view wx:else class="personal__login">
+  <button type="primary" bindtap="getUserProfile" size="">登 录</button>
+</view>

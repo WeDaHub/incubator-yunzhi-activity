@@ -1,0 +1,85 @@
+<!--pages/list.wxml-->
+<view class="list__container">
+  <view class="list__swiper" style="padding-top: {{statusBarHeight}}px;">
+    <view style="height: 40px; line-height: 40px;" class="list-logo">
+      <image src="../../assets/images/list/list-logo.png"></image>
+    </view>
+    <view class="list__swiper-container">
+      <swiper 
+        class="swiper" 
+        indicator-dots="true"
+        indicator-active-color="#2e7efe"
+        autoplay="true"
+        interval="5000"
+        duration="1000"
+        circular="{{true}}">
+        <block wx:for="{{bannerList}}" wx:for-index="index" wx:key="activityId">
+          <swiper-item>
+            <image mode="aspectFill" src="{{item.introImgUrl}}" class="slide-image" bindtap="goToDetail" data-activityid="{{item.activityId}}"/>
+          </swiper-item>  
+        </block>  
+      </swiper>
+    </view>
+  </view>
+  
+  <view class="list-tabs">
+    <view style="position: sticky;">
+      <t-tabs tabs="{{tabs}}" labelProp="name" bind:select="onTabClick" model:active-tab="{{activeTab}}"></t-tabs>
+    </view>
+    <view wx:if="{{curTabName === 'new'}}" class="list-tabs__content">
+      <t-active-list list="{{list}}" bindloginverity="loginVerity"></t-active-list>
+    </view>
+    <view wx:if="{{curTabName === 'top'}}" class="list-tabs__content" >
+      <scroll-view class="list-tabs__top-list" scroll-x enable-flex>
+        <view class="list-tabs__top-list-tabs">
+          <view class="list-tabs__top-list-item {{ topActiveTab === index ? 'list-tabs__top-list-item-selected' : '' }}" wx:for="{{ topTabs }}" bindtap="checkTopTabs" data-item="{{item}}" data-index="{{index}}" wx:key="tab">{{item.name}}</view>
+        </view>
+      </scroll-view>
+
+      <view wx:if="{{topActiveTab === 0}}">
+        <t-active-list list="{{list}}" hasCup="{{true}}" bindloginverity="loginVerity"></t-active-list>
+      </view>
+      <view wx:if="{{topActiveTab === 1}}">
+        <t-active-list list="{{list}}" hasCup="{{true}}" bindloginverity="loginVerity"></t-active-list>
+      </view>
+    </view>
+    <view wx:if="{{curTabName === 'score'}}" class="list-tabs__content">
+      <scroll-view class="list-tabs__top-list" scroll-x enable-flex>
+        <view class="list-tabs__top-list-tabs">
+          <view class="list-tabs__top-list-item {{ topActiveTab === index ? 'list-tabs__top-list-item-selected' : '' }}" wx:for="{{ topTabs }}" bindtap="checkTopTabs" data-item="{{item}}" data-index="{{index}}" wx:key="tab">{{item.name}}</view>
+        </view>
+      </scroll-view>
+
+      <view class="list-card__score-item" wx:for="{{list}}" wx:key="_id">
+        <view class="list-card__score-item-images">
+          <image
+            wx:if="{{index <= 2}}"
+            class="list-card__score-item-ranking"
+            src="../../assets/images/list/list-score-{{index + 1}}.png"></image>
+          <view wx:else class="list-card__score-item-ranking-num">{{index < 9 ? ('0' + (index + 1)) : (index + 1)}}</view>
+          <image class="list-card__score-item-head" src="{{item.avatarUrl}}"></image>
+        </view>
+        <view class="list-card__score-item-content">
+          <view class="list-card__score-top">
+            <text class="list-card__score-title">{{item.userName}}</text>
+            <text class="list-card__score-num-label">积分</text>
+          </view>
+          <view class="list-card__score-bottom">
+            <text class="list-card__score-area"></text>
+            <text class="list-card__score-num">{{item.score}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view>
+      <mp-loading show="{{showLoading}}" type="circle"></mp-loading>
+      <view class="list__end-tip" wx:if="{{showEndTip && list.length > 0}}">到底啦 ~ </view>
+      <t-page-empty wx:if="{{showEndTip && list.length === 0}}"></t-page-empty>
+    </view>
+  </view>
+</view>
+
+<mp-dialog title="登录" show="{{showLogin}}" bindbuttontap="getUserProfile" buttons="{{buttons}}" mask-closable="{{false}}">
+    <view>请点击确认登录</view>
+</mp-dialog>

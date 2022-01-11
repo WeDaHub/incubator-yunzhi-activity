@@ -1,0 +1,69 @@
+.share-box-wrap{
+  width: 100%;
+  height: 150rpx;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 32rpx;
+}
+.share-box-item{
+  width: 50%;
+  box-sizing: border-box;
+}
+.share-btn{
+  width: 100% !important;
+  border: none !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: PingFangSC, PingFangSC-Medium;
+  font-weight: 500;
+  color: #333333;
+  font-size: 30rpx;
+}
+.share-icon{
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 16rpx;
+}
+
+.share-image-wrap {
+  position: fixed;
+  bottom:0;left:0;right:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,.5);
+}
+.share-image {
+  padding:40rpx;
+  text-align:center;
+  position: fixed;
+  bottom:0;left:0;right:0;
+  z-index: 99;
+  background: #fff;
+}
+.img-show{
+  display: block;
+  margin:  0 auto;
+}
+.info-text{
+  font-size: 28rpx;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  color: #000000;
+  text-align: center;
+  margin: 30rpx auto 20rpx;
+}
+.share-close {
+  position: absolute;
+  top:10rpx;
+  right:10rpx;
+}
+.share-save {
+  width:320rpx;
+  height: 84rpx;
+  background: #0082fe;
+  color: #fff;
+  border-radius: 50rpx;
+}

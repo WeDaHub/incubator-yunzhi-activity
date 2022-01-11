@@ -1,0 +1,9 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+button {
+  margin-top: 20px;
+  background-color: #f9f9fa;
+}

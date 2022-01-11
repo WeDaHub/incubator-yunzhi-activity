@@ -1,0 +1,24 @@
+/* components/t-page-empty/index.wxss */
+.empty-conponent {
+  display: flex;
+  padding-top: 160rpx;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-conponent__logo {
+  width: 300rpx;
+  height: 300rpx;
+}
+
+.empty-conponent__logo-score {
+  width: 108rpx;
+  height: 132rpx;
+}
+
+.empty-conponent__tip {
+  height: 40rpx;
+  font-size: 28rpx;
+  color: #999999;
+  margin-top: 40rpx;
+}

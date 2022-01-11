@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "t-tabs": "/components/t-tabs/index",
+    "t-active-list": "../../components/t-active-list/index",
+    "t-page-empty": "../../components/t-page-empty/index",
+    "mp-loading": "weui-miniprogram/loading/loading",
+    "mp-dialog": "weui-miniprogram/dialog/dialog"
+  },
+  "navigationStyle": "custom"
+}

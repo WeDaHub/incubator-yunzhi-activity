@@ -1,0 +1,240 @@
+/* pages/activity/detail/index.wxss */
+.activity-detail {
+  position: relative;
+}
+.activity-detail .activity-detail__imgs {
+  position: relative;
+}
+.activity-detail .activity-detail__imgs .swiper {
+  height: 540rpx;
+}
+.activity-detail .activity-detail__imgs .swiper-gradient {
+  height: 192rpx;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+}
+.activity-detail .activity-detail__imgs .swiper-item {
+  height: 100%;
+  width: 100%;
+}
+
+.activity-detail .activity-detail__body {
+  padding: 0 32rpx;
+}
+
+.activity-detail .activity-detail__body .activity-detail__name {
+  /* margin: 0 32rpx; */
+  font-size: 40rpx;
+  font-weight: bold;
+  line-height: 56rpx;
+  color: #111111;
+  margin-bottom: 20rpx;
+}
+.activity-detail .activity-detail__body .activity-detail__icon {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 20rpx;
+  margin-bottom: 6rpx;
+}
+.activity-detail .activity-detail__body .activity-detail__info {
+  color: #666666;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  margin: 16rpx 0;
+}
+.activity-detail .activity-detail__body .activity-detail_content {
+  font-size: 28rpx;
+  margin-top: 40rpx;
+  color: #111111;
+  line-height: 40rpx;
+  min-height: 200rpx;
+}
+
+.activity-detail__tabs {
+  margin: 40rpx 0;
+}
+
+.activity-detail .activity-detail__body .activity-detail__comments {
+  padding: 40rpx 0 0rpx 0;
+}
+.activity-detail .activity-detail__body .activity-detail__comments .activity-detail__comment-btn {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20rpx;
+}
+.activity-detail .activity-detail__body .activity-detail__comments .activity-detail__comment-btn text {
+  font-size: 28rpx;
+  color: #277aff;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #ffffff;
+  border: 1px solid #277aff;
+  border-radius: 48rpx;
+  width: 340rpx;
+  display: block;
+  text-align: center;
+}
+
+.activity-detail .activity-detail__body .activity-detail__comment {
+  padding: 24rpx 0;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.activity-detail .activity-detail__body .activity-detail__comment .activity-detail__comment-info {
+  display: flex;
+  justify-content: space-between;
+}
+.activity-detail .activity-detail__body .activity-detail__comment .activity-detail__comment-content {
+  font-size: 28rpx;
+  color: #111111;
+  margin-top: 24rpx;
+}
+
+.activity-detail .activity-detail__body .activity-detail__comment .activity-detail__comment-info .activity-detail__comment-info-head {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.activity-detail .activity-detail__body .activity-detail__comment .activity-detail__comment-info .activity-detail__comment-info-head image {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  margin-right: 12rpx;
+}
+.activity-detail .activity-detail__body .activity-detail__comment .activity-detail__comment-info .activity-detail__comment-info-name {
+  font-size: 28rpx;
+  line-height: 32rpx;
+  color: #111111;
+  margin-top: 2rpx;
+}
+.activity-detail .activity-detail__body .activity-detail__comment .activity-detail__comment-info .activity-detail__comment-info-date {
+  font-size: 24rpx;
+  line-height: 32rpx;
+  color: #666666;
+  margin-bottom: 0rpx;
+}
+.activity-detail .activity-detail__body .activity-detail__comment .activity-detail__comment-info .activity-detail__comment-info-stars {
+  display: flex;
+}
+.activity-detail .activity-detail__body .activity-detail__comment .activity-detail__comment-info .activity-detail__comment-info-stars image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.activity-detail .activity-detail__opt-cont {
+  position: fixed;
+  bottom: 30rpx;
+  text-align: center;
+  width: 100%;
+}
+.activity-detail .activity-detail__opt-cont .weui-btn {
+  /* width: 100%; */
+  padding: 24rpx;
+  /* height: 96rpx;
+  line-height: 96rpx; */
+  box-shadow: 0 10rpx 20px 0 rgba(39, 122, 255, 0.35);
+  border-radius: 48px;
+  background-color: #277aff;
+}
+.activity-detail .activity-detail__opt-cont .weui-btn[aria-disabled='true'] {
+  color: #f5f5f5;
+  background-color: #c7c7c7;
+}
+
+.activity-detail .activity-detail__body .activity-detail__user {
+  padding: 24rpx 0;
+  border-bottom: 1px solid #eeeeee;
+  display: flex;
+}
+.activity-detail .activity-detail__body .activity-detail__user image {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  margin-right: 16rpx;
+}
+.activity-detail .activity-detail__body .activity-detail__user .activity-detail__user-name {
+  font-size: 28rpx;
+  line-height: 48rpx;
+  color: #111111;
+  margin-top: 2rpx;
+}
+.activity-detail .activity-detail__body .activity-detail__user .activity-detail__user-date {
+  font-size: 24rpx;
+  line-height: 48rpx;
+  color: #666666;
+  margin-bottom: 0rpx;
+}
+
+.activity-detail__user-loading {
+  width: 100%;
+}
+.activity-detail__user-loading .weui-loadmore {
+  margin-top: 20rpx;
+  margin-bottom: 0rpx;
+}
+
+.activity-detail__command {
+  text-align: left;
+  width: 100%;
+}
+.activity-detail__command-name {
+  font-size: 32rpx;
+  color: #666666;
+  margin-bottom: 10rpx;
+}
+
+.activity-detail__command input {
+  background-color: #f5f5f5;
+  border-radius: 10rpx;
+  height: 96rpx;
+  padding: 0 20rpx;
+  font-size: 36rpx;
+  width: unset;
+}
+.activity-detail__command textarea {
+  background-color: #f5f5f5;
+  border-radius: 10rpx;
+  height: 96rpx;
+  padding: 20rpx 20rpx;
+  font-size: 36rpx;
+  width: unset;
+}
+
+.activity-detail__dialog-comment {
+  margin-bottom: 20rpx;
+}
+.activity-detail__dialog-comment-stars {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+.activity-detail__dialog-comment image {
+  width: 76rpx;
+  height: 76rpx;
+}
+.activity-detail__dialog-comment-name {
+  font-size: 32rpx;
+  color: #666666;
+  margin-bottom: 10rpx;
+}
+
+.list__end-tip {
+  font-size: 28rpx;
+  text-align: center;
+  color: #666;
+  margin-top: 40rpx;
+}
+
+.empty-conponent__logo {
+  width: 300rpx;
+  height: 300rpx;
+}
+
+.empty-conponent__tip {
+  height: 40rpx;
+  font-size: 28rpx;
+  color: #999999;
+  margin-top: 20rpx;
+}

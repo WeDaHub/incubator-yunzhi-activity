@@ -1,0 +1,5 @@
+<view class="empty-conponent">
+  <image class="empty-conponent__logo" wx:if="{{type === 'default'}}" src="../../assets/images/empty-bg.png"></image>
+  <image class="empty-conponent__logo-score" wx:if="{{type === 'score'}}" src="../../assets/images/empty-bg-score.png"></image>
+  <text class="empty-conponent__tip">{{tip}}</text>
+</view>

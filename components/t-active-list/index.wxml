@@ -1,0 +1,23 @@
+<view class="list-card__item" wx:for="{{list}}" wx:key="activityId" data-activityId="{{item.activityId}}" bindtap="goToDetail">
+  <image wx:if="{{hasCup && index <= 2}}" src="../../assets/images/list/list-top-{{index + 1}}.png" wx:key="id" class="list-cart__item-cup"></image>
+  <view class="list-card__item-image">
+    <image mode="aspectFill" src="{{item.introImgUrl}}"></image>
+  </view>
+  <view class="list-card__item-detail">
+    <text class="list-card__item-title">{{item.name}}</text>
+    <view class="list-card__item-content">
+      <view class="list-card__item-content-item" style="margin-right: 10rpx;">
+        <image src="../../assets/images/list/list-time.png"></image>
+        <text>{{item.startTime}}</text>
+      </view>
+      <view class="list-card__item-content-item">
+        <image src="../../assets/images/list/list-person-num.png"></image>
+        <text>{{item.sign}}人参与</text>
+      </view>
+    </view>
+    <view class="list-card__item-content-item">
+        <image src="../../assets/images/list/list-area.png"></image>
+        <text>{{item.address}}</text>
+      </view>
+  </view>
+</view>

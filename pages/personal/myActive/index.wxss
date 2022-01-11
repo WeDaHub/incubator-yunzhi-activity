@@ -1,0 +1,9 @@
+.my-active__body {
+  padding: 0 24rpx;
+}
+.list__end-tip {
+  font-size: 28rpx;
+  text-align: center;
+  color: #666;
+  margin-top: 20rpx;
+}

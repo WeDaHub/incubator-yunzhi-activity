@@ -1,0 +1,13 @@
+<scroll-view scroll-x="{{true}}" class="{{extClass}}" style="width: {{width}}" scroll-with-animation="{{true}}" scroll-left="{{scrollLeft}}">
+  <view class="tabs-cont">
+    <view class="tabs-cont__items">
+      <view class="tab {{ activeTab === index ? 'active' : ''}}" wx:for="{{ tabs }}" wx:key="id" bindtap="handleLink" data-item="{{item}}" data-index="{{index}}">
+        <text class="tab-{{index}}">{{ labelProp ? item[labelProp] : item }}</text>
+        <view wx:if="{{labelNum && (item[labelNum] && item[labelNum] > 0)}}" class="tabs-cont__num">
+          {{item[labelNum]}}
+        </view>
+      </view>
+    </view>
+    <view class="tabs-cont__line" style="width: {{lineWidth}}; left: {{lineLeft}}"></view>
+  </view>
+</scroll-view>
